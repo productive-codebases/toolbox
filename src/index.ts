@@ -9,7 +9,7 @@ export { isTruthy } from './typeguards/isTruthy'
  * Types
  */
 
-export {
+export type {
   Maybe,
   MaybeUndef,
   Perhaps,

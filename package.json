@@ -1,5 +1,5 @@
 {
-  "name": "toolbox",
+  "name": "@crock/toolbox",
   "version": "0.0.1-0",
   "description": "Some useful functions for productive codebases.",
   "author": "Alexis MINEAUD",

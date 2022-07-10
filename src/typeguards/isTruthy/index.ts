@@ -1,4 +1,4 @@
-import { Perhaps } from '@/types'
+import type { Perhaps } from '@/types'
 
 /**
  * Returns a type predicate to keep the truthy values of an array.
