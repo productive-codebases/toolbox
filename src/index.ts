@@ -15,6 +15,7 @@ export {
   addSetValueToMap,
   removeSetValueToMap
 } from './functions/setValuesToMap'
+export { assertUnreachableCase } from './functions/assertUnreachableCase'
 
 /**
  * Types
