@@ -2,8 +2,11 @@
  * Functions.
  */
 
-export { isDefined } from './typeguards/isDefined'
-export { isTruthy } from './typeguards/isTruthy'
+export { isDefined } from './functions/isDefined'
+export { isTruthy } from './functions/isTruthy'
+export { ensureArray } from './functions/ensureArray'
+export { ensureSet } from './functions/ensureSet'
+export { deepMerge } from './functions/deepMerge'
 
 /**
  * Types
