@@ -37,22 +37,10 @@ describe('Logger', () => {
     logger('error')('An error message')
 
     expect(logs).toEqual([
-      [
-        '  \x1B[38;5;206;1mserverTest:middleware:debug \x1B[0mA debug message',
-        '\x1B[38;5;206m+0ms\x1B[0m'
-      ],
-      [
-        '  \x1B[38;5;197;1mserverTest:middleware:info \x1B[0mA info message',
-        '\x1B[38;5;197m+0ms\x1B[0m'
-      ],
-      [
-        '  \x1B[38;5;129;1mserverTest:middleware:warn \x1B[0mA warn message',
-        '\x1B[38;5;129m+0ms\x1B[0m'
-      ],
-      [
-        '  \x1B[38;5;79;1mserverTest:middleware:error \x1B[0mAn error message',
-        '\x1B[38;5;79m+0ms\x1B[0m'
-      ]
+      ['serverTest:middleware:debug A debug message'],
+      ['serverTest:middleware:info A info message'],
+      ['serverTest:middleware:warn A warn message'],
+      ['serverTest:middleware:error An error message']
     ])
   })
 

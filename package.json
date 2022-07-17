@@ -16,7 +16,7 @@
     "check": "tsc --noEmit",
     "lint": "eslint .",
     "prepublishOnly": "npm t && npm run build",
-    "test": "jest"
+    "test": "DEBUG_HIDE_DATE=true jest"
   },
   "devDependencies": {
     "@types/debug": "^4.1.7",
