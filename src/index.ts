@@ -16,6 +16,7 @@ export {
   removeSetValueToMap
 } from './functions/setValuesToMap'
 export { assertUnreachableCase } from './functions/assertUnreachableCase'
+export { setupLogger } from './functions/logger'
 
 /**
  * Types
