@@ -1,9 +1,9 @@
-import { Maybe } from "../../types"
+import { Maybe } from '../../types'
 
 /**
  * Generic container with safe API to manipulate generic metadata (~object).
  */
-export default class MetaData<M extends object> {
+export class MetaData<M extends object> {
   private _meta: Partial<M> = {}
 
   /**
