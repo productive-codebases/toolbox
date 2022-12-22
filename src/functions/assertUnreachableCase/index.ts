@@ -1,4 +1,4 @@
-import { Perhaps } from '@/types'
+import { Perhaps } from '../../types'
 
 /**
  * When used in a default switch case, ensure that all cases have been implemented.

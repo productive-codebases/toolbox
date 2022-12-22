@@ -1,4 +1,4 @@
-import type { Perhaps } from '@/types'
+import { Perhaps } from '../../types'
 
 /**
  * Returns a type predicate to remove undefined or nullable values of an array.
