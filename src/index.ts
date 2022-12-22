@@ -1,22 +1,16 @@
 /**
- * Functions.
+ * Libs.
  */
 
-export { isDefined } from './functions/isDefined'
-export { isTruthy } from './functions/isTruthy'
-export { ensureArray } from './functions/ensureArray'
-export { ensureSet } from './functions/ensureSet'
-export { deepMerge } from './functions/deepMerge'
-export {
-  indexEntitiesToMap,
-  appendEntitiesToMap
-} from './functions/entitiesToMap'
-export {
-  addSetValueToMap,
-  removeSetValueToMap
-} from './functions/setValuesToMap'
-export { assertUnreachableCase } from './functions/assertUnreachableCase'
-export { setupLogger } from './functions/logger'
+export { isDefined } from './libs/isDefined'
+export { isTruthy } from './libs/isTruthy'
+export { ensureArray } from './libs/ensureArray'
+export { ensureSet } from './libs/ensureSet'
+export { deepMerge } from './libs/deepMerge'
+export { indexEntitiesToMap, appendEntitiesToMap } from './libs/entitiesToMap'
+export { addSetValueToMap, removeSetValueToMap } from './libs/setValuesToMap'
+export { assertUnreachableCase } from './libs/assertUnreachableCase'
+export { default as MetaData } from './libs/MetaData'
 
 /**
  * Types
@@ -29,6 +23,5 @@ export type {
   PropertiesNullable,
   PropertiesNonNullable,
   PickPropertiesNonNullable,
-  PickByValue,
-  EventLike
+  PickByValue
 } from './types'

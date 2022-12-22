@@ -24,12 +24,3 @@ export type PickPropertiesNonNullable<T, K extends keyof T> = {
 export type PickByValue<T, ValueType> = {
   [Key in keyof T]-?: T[Key] extends ValueType ? Key : never
 }
-
-/**
- * Useful to prevent the default effect of a DOM event, whatever is its interface.
- */
-export type EventLike = {
-  preventDefault: () => void
-}
-
-export {}
