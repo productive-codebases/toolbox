@@ -1,4 +1,4 @@
-import MetaData from '.'
+import { MetaData } from '.'
 
 interface IMetaData {
   id: number

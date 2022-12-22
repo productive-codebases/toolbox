@@ -10,7 +10,8 @@ export { deepMerge } from './libs/deepMerge'
 export { indexEntitiesToMap, appendEntitiesToMap } from './libs/entitiesToMap'
 export { addSetValueToMap, removeSetValueToMap } from './libs/setValuesToMap'
 export { assertUnreachableCase } from './libs/assertUnreachableCase'
-export { default as MetaData } from './libs/MetaData'
+export { MetaData } from './libs/MetaData'
+export { setupLogger } from './libs/logger'
 
 /**
  * Types
