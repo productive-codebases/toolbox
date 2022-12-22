@@ -1,4 +1,4 @@
-import { Perhaps } from '@/types'
+import { Perhaps } from '../../types'
 import { isDefined } from '../isDefined'
 
 /**
@@ -10,9 +10,10 @@ export function ensureSet<T>(s: Perhaps<T | Set<T>>): Set<T> {
   }
 
   try {
-    if ('has' in s) {
+    if (s !== null && typeof s === 'object' && 'has' in s) {
       return s
     }
+
     throw new Error()
   } catch (err) {
     return new Set<T>().add(s as T)

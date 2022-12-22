@@ -1,4 +1,4 @@
-import { Perhaps } from '@/types'
+import { Perhaps } from '../../types'
 import { isDefined } from '../isDefined'
 
 /**
