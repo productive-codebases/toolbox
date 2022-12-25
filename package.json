@@ -1,21 +1,20 @@
 {
-  "name": "crock-toolbox",
-  "version": "0.2.0",
+  "name": "@productive-codebases/toolbox",
+  "version": "1.0.0",
   "description": "Some useful functions for productive codebases.",
-  "author": "Alexis MINEAUD",
+  "author": "Productive Codebases",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cr0cK/toolbox.git"
+    "url": "git+https://github.com/productive-codebases/toolbox"
   },
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && mkdir dist && tsc --project tsconfig.build.json",
-    "check:prepublish": "npm run check && npm t && npm run build",
     "check": "tsc --noEmit",
     "lint": "eslint .",
-    "prepublishOnly": "npm t && npm run build",
+    "prepublishOnly": "npm run check && npm run lint && npm t && npm run build",
     "test": "DEBUG_HIDE_DATE=true jest"
   },
   "devDependencies": {
@@ -38,7 +37,7 @@
     "lodash.mergewith": "^4.6.2"
   },
   "bugs": {
-    "url": "https://github.com/cr0cK/toolbox/issues"
+    "url": "https://github.com/productive-codebases/toolbox/issues"
   },
-  "homepage": "https://github.com/cr0cK/toolbox#readme"
+  "homepage": "https://github.com/productive-codebases/toolbox#readme"
 }
