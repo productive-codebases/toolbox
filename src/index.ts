@@ -22,7 +22,5 @@ export type {
   MaybeUndef,
   Perhaps,
   PropertiesNullable,
-  PropertiesNonNullable,
-  PickPropertiesNonNullable,
-  PickByValue
+  PropertiesNonNullable
 } from './types'
