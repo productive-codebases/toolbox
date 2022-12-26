@@ -1,8 +1,24 @@
 # Toolbox
 
-Some useful functions for productive codebases.
+Some useful functions and types.
 
-## Functions:
+## Motivation
+
+Set of functions and types used across the different projects of Productive Codebases.
+
+## Prerequisites
+
+Typescript is not mandatory but highly recommended.
+
+## Installation
+
+```bash
+npm install @productive-codebases/toolbox
+```
+
+## Exposed tooling
+
+### Functions
 
 #### `isDefined`
 
@@ -149,7 +165,7 @@ You can enable / disable logger messages by adding a `debug` property in local s
 localStorage.set('debug', 'server:middleware:*')
 ```
 
-## Types
+### Types
 
 #### Maybe
 
