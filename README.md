@@ -22,7 +22,7 @@ npm install @productive-codebases/toolbox
 
 #### `isDefined`
 
-Rturn true if the value is neither null nor undefined.
+Return true if the value is neither null nor undefined.
 
 Usage:
 
