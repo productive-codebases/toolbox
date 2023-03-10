@@ -13,6 +13,7 @@ export { addSetValueToMap, removeSetValueToMap } from './libs/setValuesToMap'
 export { assertUnreachableCase } from './libs/assertUnreachableCase'
 export { MetaData } from './libs/MetaData'
 export { setupLogger } from './libs/logger'
+export type { Logger } from './libs/logger'
 
 /**
  * Types

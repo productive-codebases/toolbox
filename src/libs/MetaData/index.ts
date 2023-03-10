@@ -3,20 +3,20 @@ import { Maybe } from '../../types'
 /**
  * Generic container with safe API to manipulate generic metadata (~object).
  */
-export class MetaData<M extends object> {
-  private _meta: Partial<M> = {}
+export class MetaData<TMetadata extends object> {
+  private _meta: Partial<TMetadata> = {}
 
   /**
    * Return a metadata.
    */
-  get<K extends keyof M>(key: K): Maybe<M[K]> {
-    return (this._meta[key] as M[K]) || null
+  get<K extends keyof TMetadata>(key: K): Maybe<TMetadata[K]> {
+    return (this._meta[key] as TMetadata[K]) || null
   }
 
   /**
    * Set a metadata.
    */
-  set(partialMeta: Maybe<Partial<M>>): this {
+  set(partialMeta: Maybe<Partial<TMetadata>>): this {
     this._meta = { ...this._meta, ...partialMeta }
     return this
   }
@@ -24,7 +24,7 @@ export class MetaData<M extends object> {
   /**
    * Delete a metadata.
    */
-  delete<K extends keyof M>(key: K): this {
+  delete<K extends keyof TMetadata>(key: K): this {
     delete this._meta[key]
     return this
   }
