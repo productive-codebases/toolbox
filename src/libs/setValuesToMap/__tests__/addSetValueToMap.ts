@@ -1,4 +1,5 @@
 import { addSetValueToMap } from '..'
+import { describe, expect, it } from 'vitest'
 
 describe('addSetValueToMap', () => {
   it('should add a key/value in the map', () => {

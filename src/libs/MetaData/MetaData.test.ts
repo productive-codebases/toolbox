@@ -1,4 +1,5 @@
 import { MetaData } from '.'
+import { describe, expect, it } from 'vitest'
 
 interface IMetaData {
   id: number

@@ -1,4 +1,5 @@
 import { ensureSet } from '.'
+import { describe, expect, it } from 'vitest'
 
 describe('ensureSet', () => {
   it('should return an empty Set if the value is null or undefined', () => {

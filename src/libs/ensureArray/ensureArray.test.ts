@@ -1,4 +1,5 @@
 import { ensureArray } from '.'
+import { describe, expect, it } from 'vitest'
 
 describe('ensureArray', () => {
   it('should return an empty array if the value is null or undefined', () => {

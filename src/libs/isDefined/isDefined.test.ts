@@ -1,4 +1,5 @@
 import { isDefined } from '.'
+import { describe, expect, it } from 'vitest'
 
 describe('isDefined', () => {
   it('should remove undefined or nullable values', () => {

@@ -1,4 +1,5 @@
 import { setupLogger } from '.'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 describe('Logger', () => {
   const loggerMapping = {

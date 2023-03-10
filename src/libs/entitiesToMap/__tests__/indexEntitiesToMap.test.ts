@@ -1,4 +1,5 @@
 import { indexEntitiesToMap } from '..'
+import { describe, expect, it } from 'vitest'
 
 describe('indexEntitiesToMap', () => {
   it('should index objects in a map', () => {

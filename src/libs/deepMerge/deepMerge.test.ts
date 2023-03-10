@@ -1,4 +1,5 @@
 import { deepMerge } from '.'
+import { describe, expect, it } from 'vitest'
 
 describe('deepMerge', () => {
   it('should deep merge two objects', () => {

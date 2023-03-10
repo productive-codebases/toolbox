@@ -1,4 +1,5 @@
 import { isTruthy } from '.'
+import { describe, expect, it } from 'vitest'
 
 describe('isTruthy', () => {
   it('should keep truthty values', () => {
