@@ -19,9 +19,6 @@
     "esModuleInterop": true,
     "declarationMap": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["*"]
-    },
     "typeRoots": ["node_modules/@types"]
   },
   "include": ["src"],
