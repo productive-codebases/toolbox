@@ -16,6 +16,12 @@ export { setupLogger } from './libs/logger'
 export type { Logger } from './libs/logger'
 
 /**
+ * Stubs
+ */
+
+export { default as LocalStorageStub } from './stubs/LocalStorageStub'
+
+/**
  * Types
  */
 
