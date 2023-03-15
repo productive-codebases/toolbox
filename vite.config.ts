@@ -27,6 +27,9 @@ export default defineConfig(configEnv => ({
     }
   },
   build: {
+    sourcemap: true,
+    outDir: 'dist',
+    manifest: true,
     lib: {
       entry: resolve('src', 'index.ts'),
       name: 'toolbox',
