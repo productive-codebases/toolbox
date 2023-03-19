@@ -1,6 +1,10 @@
 import debug from 'debug'
 import { LoggerLevel } from './types'
 
+export type LoggerSetup<TLoggerMapping extends object> = ReturnType<
+  typeof setupLogger<TLoggerMapping>
+>
+
 export type Logger = (loggerLevel: LoggerLevel) => debug.Debugger
 
 /**
