@@ -31,8 +31,7 @@ export type Logger = (loggerLevel: LoggerLevel) => debug.Debugger
  * logger('error')('Error 500')
  */
 export function setupLogger<TLoggerMapping extends object>(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _: TLoggerMapping
+  loggerMapping: TLoggerMapping
 ) {
   const newLogger = function newLogger<
     TLoggerName extends keyof TLoggerMapping
@@ -49,6 +48,7 @@ export function setupLogger<TLoggerMapping extends object>(
   }
 
   return {
+    loggerMapping,
     newLogger,
     debug
   }
