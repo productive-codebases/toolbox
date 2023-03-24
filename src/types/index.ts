@@ -14,3 +14,10 @@ export type PropertiesNullable<T> = { [P in keyof T]: Maybe<T[P]> }
 export type PropertiesNonNullable<T> = {
   [P in keyof T]-?: NonNullable<T[P]>
 }
+
+// Partial applied deeply
+export type PartialDeep<T> = T extends object
+  ? {
+      [P in keyof T]?: PartialDeep<T[P]>
+    }
+  : T

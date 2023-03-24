@@ -27,10 +27,4 @@ export { default as LocalStorageStub } from './stubs/LocalStorageStub'
  * Types
  */
 
-export type {
-  Maybe,
-  MaybeUndef,
-  Perhaps,
-  PropertiesNullable,
-  PropertiesNonNullable
-} from './types'
+export * from './types'
