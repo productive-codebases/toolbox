@@ -85,24 +85,42 @@ describe('deepMerge', () => {
 
   describe('Options', () => {
     describe('concatArray', () => {
-      it('should not concat arrays when using `concatArray:false`', () => {
-        const o1 = {
-          '1': '1',
-          '2': {
-            '2.1': ['two']
+      const tests = [
+        {
+          concatArray: true,
+          expectation: {
+            '1': '1',
+            '2': { '2.1': ['two', 'dot', 'one'] }
+          }
+        },
+        {
+          concatArray: false,
+          expectation: {
+            '1': '1',
+            '2': { '2.1': ['dot', 'one'] }
           }
         }
+      ]
 
-        const o2 = {
-          '1': '1',
-          '2': {
-            '2.1': ['dot', 'one']
-          }
+      const o1 = {
+        '1': '1',
+        '2': {
+          '2.1': ['two']
         }
+      }
 
-        expect(deepMerge([o1, o2], { concatArray: false })).toEqual({
-          '1': '1',
-          '2': { '2.1': ['dot', 'one'] }
+      const o2 = {
+        '1': '1',
+        '2': {
+          '2.1': ['dot', 'one']
+        }
+      }
+
+      tests.forEach(test => {
+        it('should not concat arrays when using `concatArray:false`', () => {
+          expect(
+            deepMerge([o1, o2], { concatArray: test.concatArray })
+          ).toEqual(test.expectation)
         })
       })
     })

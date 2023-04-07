@@ -42,14 +42,14 @@ export function deepMerge(
   return objects.reduce((acc, obj) => {
     return mergeWith(acc, obj, (v1, v2) => {
       if (!options.concatArray) {
-        return undefined
+        return
       }
 
       if (Array.isArray(v1)) {
         return v1.concat(v2)
       }
 
-      return undefined
+      return
     })
   }, {})
 }
