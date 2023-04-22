@@ -37,7 +37,7 @@
       "require": "./dist/toolbox.umd.js"
     }
   },
-  "main": "./dist/toolbox.umd.js",
+  "main": "./dist/toolbox.cjs.js",
   "module": "./dist/toolbox.es.js",
   "types": "./dist/index.d.ts",
   "devDependencies": {

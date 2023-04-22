@@ -33,7 +33,7 @@ export default defineConfig(configEnv => ({
     lib: {
       entry: resolve('src', 'index.ts'),
       name: 'toolbox',
-      formats: ['es', 'umd'],
+      formats: ['es', 'cjs', 'umd'],
       fileName: format => `toolbox.${format}.js`
     },
     rollupOptions: {
