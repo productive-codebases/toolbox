@@ -2,7 +2,7 @@
   "name": "@productive-codebases/toolbox",
   "description": "Tooling for productive codebases.",
   "private": false,
-  "version": "1.1.0-beta.10",
+  "version": "1.1.0-beta.11",
   "type": "module",
   "scripts": {
     ":d": "npm run dev",
