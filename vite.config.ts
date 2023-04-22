@@ -1,25 +1,17 @@
-import { resolve } from 'node:path'
+import * as path from 'path'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-import EsLint from 'vite-plugin-linter'
 import tsConfigPaths from 'vite-tsconfig-paths'
-import * as path from 'path'
-
 import * as packageJson from './package.json'
-
-const { EsLinter, linterPlugin } = EsLint
+import { resolve } from 'node:path'
 
 // https://vitejs.dev/config/
-export default defineConfig(configEnv => ({
+export default defineConfig({
   plugins: [
     dts({
       include: ['src']
     }),
-    tsConfigPaths(),
-    linterPlugin({
-      include: ['./src}/**/*.{ts,tsx}'],
-      linters: [new EsLinter({ configEnv })]
-    })
+    tsConfigPaths()
   ],
   resolve: {
     alias: {
@@ -40,4 +32,4 @@ export default defineConfig(configEnv => ({
       external: [...Object.keys(packageJson.peerDependencies)]
     }
   }
-}))
+})
