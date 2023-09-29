@@ -4,18 +4,14 @@ module.exports = {
   ],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.ts$',
   testPathIgnorePatterns: [
-    '/node_modules/'
+    '/node_modules/',
+    'test-helpers'
   ],
   collectCoverageFrom: [
     '**/*.ts',
     '!**/node_modules/**'
   ],
   coverageDirectory: 'reports/coverage',
-  globals: {
-    'ts-jest': {
-      diagnostics: false
-    }
-  },
   testEnvironment: 'node',
   bail: false,
   verbose: true,
