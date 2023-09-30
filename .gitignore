@@ -10,8 +10,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+junit
 *.local
 *.mjs
+
+# Coverage
+coverage
 
 # Editor directories and files
 .vscode/*

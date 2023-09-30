@@ -1,5 +1,4 @@
 import { appendEntitiesToMap } from '..'
-import { describe, expect, it } from 'vitest'
 
 describe('appendEntitiesToMap', () => {
   it('should append objects in a map', () => {

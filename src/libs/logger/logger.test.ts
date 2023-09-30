@@ -1,5 +1,4 @@
 import { LoggerSetup, setupLogger } from '.'
-import { beforeEach, describe, expect, it } from 'vitest'
 
 const loggerMapping = {
   serverTest: {

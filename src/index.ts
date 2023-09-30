@@ -2,20 +2,54 @@
  * Libs.
  */
 
-export { addSetValueToMap, removeSetValueToMap } from './libs/setValuesToMap'
+/**
+ * Conditions
+ */
+
 export { assertUnreachableCase } from './libs/assertUnreachableCase'
+
+/**
+ * Objects
+ */
+
 export { createEntities, createEntity } from './libs/entities'
 export { deepMerge } from './libs/deepMerge'
+
+/**
+ * Arrays
+ */
+
 export { ensureArray } from './libs/ensureArray'
+
+/**
+ * Set
+ */
+
 export { ensureSet } from './libs/ensureSet'
+
+/**
+ * Maps
+ */
+
+export { addSetValueToMap, removeSetValueToMap } from './libs/setValuesToMap'
 export { indexEntitiesToMap, appendEntitiesToMap } from './libs/entitiesToMap'
+
+/**
+ * Assertions
+ */
+
 export { isDefined } from './libs/isDefined'
 export { isNotFalsy, filterFalsies } from './libs/filterFalsies'
 export { isTruthy } from './libs/isTruthy'
-export { MetaData } from './libs/MetaData'
-export { setupLogger } from './libs/logger'
-export { StrictObject } from './libs/objects'
 
+export { MetaData } from './libs/MetaData'
+export { StrictObject } from './libs/StrictObject'
+
+/**
+ * Logger
+ */
+
+export { setupLogger } from './libs/logger'
 export type { Logger, LoggerSetup } from './libs/logger'
 
 /**

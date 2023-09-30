@@ -1,5 +1,4 @@
 import { deepMerge } from '.'
-import { describe, expect, expectTypeOf, it } from 'vitest'
 
 describe('deepMerge', () => {
   describe('Merging', () => {
@@ -49,16 +48,17 @@ describe('deepMerge', () => {
 
       const mergedObjects = deepMerge([o1, o2, o3, o4])
 
+      type MergedObjectType = typeof o1 & typeof o2 & typeof o3 & typeof o4
+
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const assertMergedObjectType: MergedObjectType = mergedObjects
+
       expect(mergedObjects).toEqual({
         '1': '1',
         '2': '2',
         '3': '3',
         '4': '4'
       })
-
-      type MergedObjectType = typeof o1 & typeof o2 & typeof o3 & typeof o4
-
-      expectTypeOf(mergedObjects).toMatchTypeOf<MergedObjectType>()
     })
 
     it('should concat arrays by default', () => {
