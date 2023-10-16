@@ -4,11 +4,11 @@ import { ensureArray } from '../ensureArray'
 /**
  * Instanciate entities from litteral objects having the same object shape.
  */
-export function createEntities<TEntity, TRawObject extends Partial<TEntity>>(
-  EntityClass: new (data: TRawObject) => TEntity,
-  rawObjects: Maybe<Array<TRawObject>>
+export function createEntities<TEntity, TObject extends Partial<TEntity>>(
+  EntityClass: new (data: TObject) => TEntity,
+  objs: Maybe<Array<TObject>>
 ): TEntity[] {
-  return ensureArray(rawObjects).map(rawObject => {
+  return ensureArray(objs).map(rawObject => {
     return new EntityClass(rawObject)
   })
 }
@@ -16,9 +16,9 @@ export function createEntities<TEntity, TRawObject extends Partial<TEntity>>(
 /**
  * Instanciate entity from a litteral object having the same object shape.
  */
-export function createEntity<TEntity, TRawObject extends Partial<TEntity>>(
-  EntityClass: new (data: TRawObject) => TEntity,
-  rawObject: TRawObject
+export function createEntity<TEntity, TObject extends Partial<TEntity>>(
+  EntityClass: new (data: TObject) => TEntity,
+  obj: TObject
 ): TEntity {
-  return new EntityClass(rawObject)
+  return new EntityClass(obj)
 }

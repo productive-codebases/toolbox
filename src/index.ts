@@ -9,10 +9,16 @@
 export { assertUnreachableCase } from './libs/assertUnreachableCase'
 
 /**
- * Objects
+ * Entities
  */
 
 export { createEntities, createEntity } from './libs/entities'
+export { StrictObject } from './libs/StrictObject'
+
+/**
+ * Objects
+ */
+
 export { deepMerge } from './libs/deepMerge'
 
 /**
@@ -42,9 +48,6 @@ export { isDefined } from './libs/isDefined'
 export { isNotFalsy, filterFalsies } from './libs/filterFalsies'
 export { isTruthy } from './libs/isTruthy'
 
-export { MetaData } from './libs/MetaData'
-export { StrictObject } from './libs/StrictObject'
-
 /**
  * Logger
  */
@@ -57,6 +60,12 @@ export type { Logger, LoggerSetup } from './libs/logger'
  */
 
 export { default as LocalStorageStub } from './stubs/LocalStorageStub'
+
+/**
+ * Toolings
+ */
+
+export { MetaData } from './libs/MetaData'
 
 /**
  * Types
