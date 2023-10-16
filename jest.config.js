@@ -1,24 +1,17 @@
+/* eslint-disable no-undef */
+
 module.exports = {
-  roots: [
-    '<rootDir>/src'
-  ],
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.ts$',
-  testPathIgnorePatterns: [
-    '/node_modules/'
-  ],
-  collectCoverageFrom: [
-    '**/*.ts',
-    '!**/node_modules/**'
-  ],
-  coverageDirectory: 'reports/coverage',
-  globals: {
-    'ts-jest': {
-      diagnostics: false
-    }
+  rootDir: '.',
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1'
   },
-  testEnvironment: 'node',
-  bail: false,
-  verbose: true,
+  testPathIgnorePatterns: ['/node_modules/', 'dist', 'test-helper'],
+  collectCoverage: true,
+  coverageReporters: ['lcov'],
+  collectCoverageFrom: ['**/*.{ts,tsx}', '!dist/**', '!**/node_modules/**'],
   preset: 'ts-jest',
-  testMatch: null
+  reporters: [
+    'default',
+    ['jest-junit', { outputDirectory: 'junit', outputName: 'junit.xml' }]
+  ]
 }

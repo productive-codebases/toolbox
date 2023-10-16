@@ -1,28 +1,55 @@
 import mergeWith from 'lodash.mergewith'
 
 interface IDeepMergeOptions {
+  /** Concat arrays */
   concatArray: boolean
 }
 
 /**
- * Deep merge of T object.
- * Arrays will be concatened too and object will be deep merged.
+ * Merge objects deeply.
  */
 export function deepMerge<T1, T2>(
   objects: [obj1: T1, obj2: T2],
-  options: IDeepMergeOptions = { concatArray: true }
-): T1 & T2 {
-  const res = mergeWith(objects[0], objects[1], (v1, v2) => {
-    if (!options.concatArray) {
-      return undefined
-    }
+  options?: IDeepMergeOptions
+): T1 & T2
 
-    if (Array.isArray(v1)) {
-      return v1.concat(v2)
-    }
+export function deepMerge<T1, T2, T3>(
+  objects: [obj1: T1, obj2: T2, obj3: T3],
+  options?: IDeepMergeOptions
+): T1 & T2 & T3
 
-    return undefined
-  })
+export function deepMerge<T1, T2, T3, T4>(
+  objects: [obj1: T1, obj2: T2, obj3: T3, obj4: T4],
+  options?: IDeepMergeOptions
+): T1 & T2 & T3 & T4
 
-  return res
+export function deepMerge<T1, T2, T3, T4, T5>(
+  objects: [obj1: T1, obj2: T2, obj3: T3, obj4: T4, obj5: T5],
+  options?: IDeepMergeOptions
+): T1 & T2 & T3 & T4 & T5
+
+export function deepMerge<T1, T2, T3, T4, T5, T6>(
+  objects: [obj1: T1, obj2: T2, obj3: T3, obj4: T4, obj5: T5, obj5: T6],
+  options?: IDeepMergeOptions
+): T1 & T2 & T3 & T4 & T5 & T6
+
+export function deepMerge(
+  objects: any[],
+  options: IDeepMergeOptions = {
+    concatArray: true
+  }
+) {
+  return objects.reduce((acc, obj) => {
+    return mergeWith(acc, obj, (v1, v2) => {
+      if (!options.concatArray) {
+        return
+      }
+
+      if (Array.isArray(v1)) {
+        return v1.concat(v2)
+      }
+
+      return
+    })
+  }, {})
 }

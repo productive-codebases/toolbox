@@ -1,18 +1,21 @@
-import { setupLogger } from '.'
+import { LoggerSetup, setupLogger } from '.'
+
+const loggerMapping = {
+  serverTest: {
+    express: 'express',
+    middleware: 'middleware'
+  },
+  clientTest: {
+    react: 'react',
+    store: 'store'
+  }
+}
+
+// verify the correct inference of the logger setup
+type LoggerTestSetup = LoggerSetup<typeof loggerMapping>
 
 describe('Logger', () => {
-  const loggerMapping = {
-    serverTest: {
-      express: 'express',
-      middleware: 'middleware'
-    },
-    clientTest: {
-      react: 'react',
-      store: 'store'
-    }
-  }
-
-  const { newLogger, debug } = setupLogger(loggerMapping)
+  const { newLogger, debug } = setupLogger(loggerMapping) as LoggerTestSetup
 
   // Mock the log function
   let logs: any[] = []

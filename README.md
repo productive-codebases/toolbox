@@ -18,88 +18,11 @@ npm install @productive-codebases/toolbox
 
 ## Exposed tooling
 
-### Functions
+### Conditions
 
-#### `isDefined`
+#### `assertUnreachableCase`
 
-Return true if the value is neither null nor undefined.
-
-Usage:
-
-```ts
-if (isDefined(x)) {
-  //...
-}
-```
-
-#### isTruthy
-
-Return true if the value is truthy.
-
-Usage:
-
-```ts
-if (isTruthy(x)) {
-  //...
-}
-```
-
-#### ensureArray
-
-Ensure that a value is an array.
-
-Usage:
-
-```ts
-ensureArray(x).map(...)
-```
-
-#### ensureSet
-
-Ensure that a value is a set.
-
-Usage:
-
-```ts
-ensureSet(x).forEach(...)
-```
-
-#### deepMerge
-
-Merge deeply multiple objects.
-
-Usage:
-
-```ts
-const mergedObjects = deepMerge([object1, object2], optionalOptions)
-```
-
-#### indexEntitiesToMap, appendEntitiesToMap
-
-Index / Append entities (objects) to a map.
-
-Usage:
-
-```ts
-const entities = indexEntitiesToMap(entitiesAsArray, 'id')
-const entityId1 = entities.get('1')
-```
-
-#### addSetValueToMap, removeSetValueToMap
-
-Add or remove a value to a set, indexed by a key.
-
-Usage:
-
-```ts
-const map = new Map()
-addSetValueToMap(map, '1', 'value')
-const set = map.get('1')
-```
-
-#### assertUnreachableCase
-
-Allow to ensure that all cases of a `switch` are implemented by returning a `never` type in the default case.
+Ensures that all cases of a `switch` are implemented by returning a `never` type in the default case.
 
 Usage:
 
@@ -119,23 +42,209 @@ switch (unionOfValues) {
 }
 ```
 
-#### MetaData
+### Entities
 
-Container allowing to store typed metadata.
+#### `createEntity` and `createEntities`
+
+Instanciate entities from a litteral objects.
 
 Usage:
 
 ```ts
-interface IMetaData {
-  data: string
-}
+const user = createEntity(EntityUser, {
+  id: '1',
+  username: 'John'
+})
 
-const metadata = new MetaData<IMetaData>()
-metadata.set({ data: 'foo' })
-const value = metadata.get('data')
+const users = createEntities(EntityUser, [
+  {
+    id: '1',
+    username: 'John'
+  },
+  {
+    id: '2',
+    username: 'T1000'
+  }
+])
 ```
 
-#### setupLogger
+#### `StrictObject`
+
+Typed listing of keys, values and entries from an object.
+
+Usage:
+
+```ts
+const user = {
+  id: '1',
+  username: 'John'
+}
+
+StrictObject.keys(user)     // ['id', 'username']
+StrictObject.values(user)   // ['1', 'John']
+StrictObject.entries(user)  // [['id', '1'], ['username', 'John']]
+```
+
+### Objects
+
+#### `deepMerge`
+
+Deeply merges multiple objects.
+
+Usage:
+
+```ts
+const mergedObjects = deepMerge([object1, object2], optionalOptions)
+```
+
+### Arrays
+
+#### `ensureArray`
+
+Ensures that a value is an array.
+
+Usage:
+
+```ts
+ensureArray(x).map(...)
+```
+
+### Sets
+
+#### `ensureSet`
+
+Ensures that a value is a set.
+
+Usage:
+
+```ts
+ensureSet(x).forEach(...)
+```
+
+### Maps
+
+#### `addSetValueToMap`, `removeSetValueToMap`
+
+Add or remove a `Set` value to a map.
+
+Usage:
+
+```ts
+const map = new Map<string, Set<number>>()
+
+addSetValueToMap(map, 'scores', 42)
+addSetValueToMap(map, 'scores', 92)
+
+const numbers = map.get('scores')
+
+numbers.size // 2
+```
+
+#### `indexEntitiesToMap`, `appendEntitiesToMap`
+
+Index / Append entities (objects) to a map.
+
+Usage:
+
+```ts
+const users = [
+  {
+    id: 1,
+    name: 'Bob'
+  },
+  {
+    id: 2,
+    name: 'Alice'
+  },
+  {
+    id: 3,
+    name: 'John'
+  }
+]
+
+const usersMap = indexEntitiesToMap(users, 'id')
+const bobUser = usersMap.get(1)
+```
+
+```ts
+const users = [
+  {
+    id: 1,
+    name: 'Bob',
+    lastName: 'Foo'
+  },
+  {
+    id: 2,
+    name: 'Alice',
+    lastName: 'Foo'
+  },
+  {
+    id: 3,
+    name: 'John',
+    lastName: 'Bar'
+  }
+]
+
+const usersMap = appendEntitiesToMap(users, 'lastName')
+const usersHavingFoo = usersMap.get('Foo')
+
+usersHavingFoo.size // 2
+```
+
+### Assertions
+
+#### `isDefined`
+
+Returns a type predicate to remove undefined or nullable values of an array.
+
+Usage:
+
+```ts
+if (isDefined(x)) {
+  //...
+}
+```
+
+```ts
+const values = [null, undefined, '', 'value', 0].filter(isDefined)
+
+values.length // 3
+```
+
+
+#### `isNotFalsy`, `isNotFalsy`
+
+Returns a type predicate to filter falsy values of an array.
+
+Usage:
+
+```ts
+if (isNotFalsy(x)) {
+  //...
+}
+```
+
+```ts
+const values = [null, undefined, '', 'value', 0].filter(filterFalsies)
+
+values.length // 1
+```
+
+#### `isTruthy`
+
+Return true if the value is truthy.
+
+Usage:
+
+```ts
+if (isTruthy(x)) {
+  //...
+}
+```
+
+### Tooling
+
+#### `setupLogger`
 
 Return a composite function allowing to log message from a defined logger mapping.
 
@@ -165,9 +274,25 @@ You can enable / disable logger messages by adding a `debug` property in local s
 localStorage.set('debug', 'server:middleware:*')
 ```
 
+#### `MetaData`
+
+Metadata-like data storage.
+
+Usage:
+
+```ts
+interface IMetaData {
+  data: string
+}
+
+const metadata = new MetaData<IMetaData>()
+metadata.set({ data: 'foo' })
+const value = metadata.get('data')
+```
+
 ### Types
 
-#### Maybe
+#### `Maybe`
 
 Define a value that can be null.
 
@@ -177,7 +302,7 @@ Usage:
 type Value = Maybe<string>
 ```
 
-#### MaybeUndef
+#### `MaybeUndef`
 
 Define a value that can be undefined.
 
@@ -187,7 +312,7 @@ Usage:
 type Value = MaybeUndef<string>
 ```
 
-#### Perhaps
+#### `Perhaps`
 
 Define a value that can be null or undefined.
 
@@ -197,7 +322,7 @@ Usage:
 type Value = Perhaps<string>
 ```
 
-#### PropertiesNullable
+#### `PropertiesNullable`
 
 Define an object with all properties as nullable values.
 
@@ -215,7 +340,7 @@ const user: PropertiesNullable<IUser> = {
 }
 ```
 
-#### PropertiesNonNullable
+#### `PropertiesNonNullable`
 
 Define an object with all properties as non-nullable values.
 
@@ -230,5 +355,29 @@ interface INullableUser = {
 const user: PropertiesNonNullable<INullableUser> = {
   id: 1,
   name: null  // Error
+}
+```
+
+#### `PartialDeep`
+
+Partial applyed deeply.
+
+Usage:
+
+```ts
+interface IUser = {
+  id: number
+  name: string
+  address: {
+    city: string
+    country: string
+  }
+}
+
+const user: PartialDeep<IUser> = {
+  id: 1,
+  address: {
+    country: 'France'
+  }
 }
 ```
