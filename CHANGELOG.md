@@ -1,10 +1,10 @@
 # Changelog
 
-## v1.0.1
+## v1.1.1
 
 ### Fixed
 
-Update README.
+- `PartialDeep`: Do not apply `Partial` on functions.
 
 ## v1.0.0
 
