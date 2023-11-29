@@ -16,7 +16,9 @@ export type PropertiesNonNullable<T> = {
 }
 
 // Partial applied deeply
-export type PartialDeep<T> = T extends object
+export type PartialDeep<T> = T extends Function
+  ? T
+  : T extends object
   ? {
       [P in keyof T]?: PartialDeep<T[P]>
     }
