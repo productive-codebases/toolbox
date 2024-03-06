@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.3
+
+### Fixed
+
+- Fix types export in ESModule context.
+
 ## v1.1.1
 
 ### Fixed

@@ -1,7 +1,7 @@
 {
   "name": "@productive-codebases/toolbox",
   "description": "Tooling for productive codebases.",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "scripts": {
     ":d": "npm run dev",
     "build": "tsc && vite build",
@@ -32,7 +32,8 @@
   "exports": {
     ".": {
       "import": "./dist/toolbox.es.js",
-      "require": "./dist/toolbox.umd.js"
+      "require": "./dist/toolbox.umd.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "main": "./dist/toolbox.cjs.js",
