@@ -7,15 +7,13 @@ import { isTruthy } from '../isTruthy'
  * Usage:
  * arr.filter(isNotFalsy)
  */
-export function isNotFalsy<T>(o: Perhaps<T | boolean | string>): o is T {
+export function isNotFalsy<T>(o: Perhaps<T>): o is T {
   return !isTruthy(o)
 }
 
 /**
- * Remove from an array falsy values.
+ * Remove falsy values of an array.
  */
-export function filterFalsies<T>(
-  arr: Array<T | null | undefined | boolean>
-): T[] {
-  return arr.filter(isNotFalsy)
+export function filterFalsies<T>(arr: Array<T>): T[] {
+  return arr.filter(isTruthy)
 }

@@ -6,6 +6,6 @@ import { Perhaps } from '../../types'
  * Usage:
  * arr.filter(isTruthy)
  */
-export function isTruthy<T>(o: Perhaps<T | boolean | number | string>): o is T {
+export function isTruthy<T>(o: Perhaps<T>): o is T {
   return o !== undefined && o !== null && o !== false && o !== '' && o !== 0
 }

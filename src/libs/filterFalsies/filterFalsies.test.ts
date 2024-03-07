@@ -1,7 +1,7 @@
-import { isTruthy } from '.'
+import { filterFalsies } from '.'
 
-describe('isTruthy', () => {
-  it('should keep truthty values', () => {
+describe('filterFalsies', () => {
+  it('should remove falsies values', () => {
     const arr = [
       0,
       1,
@@ -17,7 +17,7 @@ describe('isTruthy', () => {
       NaN
     ]
 
-    const results = arr.filter(isTruthy)
+    const results = filterFalsies(arr)
 
     expect(results).toEqual([1, 'two', 'four', 5, 'height', {}, NaN])
   })
