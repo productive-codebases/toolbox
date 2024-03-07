@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.4
+
+### Fixed
+
+- Fix `filterFalsies` which was reversed.
+
 ## v1.1.3
 
 ### Fixed
