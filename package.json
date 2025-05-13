@@ -1,13 +1,13 @@
 {
   "name": "@productive-codebases/toolbox",
   "description": "Tooling for productive codebases.",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "scripts": {
     ":d": "npm run dev",
     "build": "tsc && vite build",
     "check:code": "tsc --noEmit",
     "dev": "vite",
-    "format": "prettier --write src/**/*.{ts,tsx,css} --config ./.prettierrc",
+    "format": "prettier --write src --config ./.prettierrc",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
     "prepare": "husky install",
@@ -40,7 +40,6 @@
   "module": "./dist/toolbox.es.js",
   "types": "./dist/index.d.ts",
   "devDependencies": {
-    "@productive-codebases/toolbox": "^1.0.1",
     "@types/debug": "^4.1.7",
     "@types/jest": "^29.5.5",
     "@types/lodash.mergewith": "^4.6.7",

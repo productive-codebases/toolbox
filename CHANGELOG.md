@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.5
+
+### Fixed
+
+- Remove self dependency.
+
 ## v1.1.4
 
 ### Fixed

@@ -1,4 +1,4 @@
-import { Maybe } from '@productive-codebases/toolbox'
+import { Maybe } from '@/types'
 
 /**
  * Basic reimplementation on LocalStorage, used in tests,
