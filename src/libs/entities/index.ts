@@ -1,4 +1,4 @@
-import { Maybe } from '@productive-codebases/toolbox'
+import { Maybe } from '@/types'
 import { ensureArray } from '../ensureArray'
 
 /**
